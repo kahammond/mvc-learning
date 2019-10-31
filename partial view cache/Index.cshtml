@@ -1,0 +1,76 @@
+﻿@model DancingGoat.Models.Home.IndexViewModel
+
+@{
+    ViewBag.Title = ResHelper.GetString("DancingGoatMvc.Home");
+}
+
+@section styles
+{
+    @Html.Kentico().PageBuilderStyles()
+}
+
+@section scripts
+{
+    @Html.Kentico().PageBuilderScripts()
+}
+
+@helper MoreButton(string text, string url)
+{
+    if (!String.IsNullOrEmpty(url) && (!String.IsNullOrEmpty(text)))
+    {
+        <div class="row">
+            <div class="clear center-text">
+                <a href="@Url.Content(url)" class="btn btn-more">
+                    @text
+                </a>
+            </div>
+        </div>
+    }
+}
+
+@Html.Kentico().EditableArea("area1", allowedWidgets: AreaRestrictionHelper.GeHomePageRestrictions())
+
+@foreach (var homeSection in Model.HomeSections)
+{
+    <div class="row">
+        <h1 class="title-tab">@homeSection.Heading</h1>
+        <div class="col-sm-12">
+            <div class="ourstory-section center-text" style="background-image: url('@Url.Kentico().ImageUrl(homeSection.BackgroundImagePath, SizeConstraint.Empty)');">
+                @Html.Raw(homeSection.Text)
+            </div>
+        </div>
+    </div>
+
+    @MoreButton(homeSection.MoreButtonText, homeSection.MoreButtonUrl)
+}
+
+@Html.Kentico().EditableArea(
+    "area2",
+    defaultSectionIdentifier: "DancingGoat.TwoColumnSection",
+    allowedWidgets: new[] { "DancingGoat.General.TextWidget", "DancingGoat.HomePage.ImageWidget" }
+)
+
+<div class="row cafe-cards">
+    <div>
+        <h1 class="title-tab">@ResHelper.GetString("DancingGoatMvc.CompanyCafes.Title")</h1>
+    </div>
+    @Html.Kentico().EditableArea(
+        "area3",
+        defaultSectionIdentifier: "DancingGoat.ThreeColumnSection",
+        allowedWidgets: new[] { "DancingGoat.HomePage.CafeCardWidget" })
+</div>
+
+@MoreButton(ResHelper.GetString("DancingGoatMvc.Cafes.More"), Url.Action("Index", "Cafes"))
+
+@{
+    ViewBag.Title = "Partial View Cache";
+}
+
+<h2>Partial View Cache</h2>
+
+@{
+    Html.RenderAction("PartialViewCacheChild");
+}
+
+<h2>This date and time is coming from Parent View</h2>
+<p>@DateTime.Now.ToString("T")</p>
