@@ -1,0 +1,30 @@
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+@using DancingGoat.Models.Widgets.WeatherWidget
+@using DancingGoat.Models.InlineEditors.WeatherEditor
+
+@model WeatherWidgetViewModel
+
+@if (Model.DegreeUnit == "0" || Model.Cafe == null)
+{
+    <h3 style="background-color: #dddddd;">The cafe weather forecast is not available right now.</h3>
+}
+else
+{
+    <h3 style="background-color: #dddddd;">@Model.Cafe</h3>
+    <p>@Model.Location
+    <br />32&deg;@Model.DegreeUnit
+    </p>
+}
+
+@* Shows an inline editor when rendered in the edit mode of the Pages application in Kentico *@
+@if (Context.Kentico().PageBuilder().EditMode)
+{
+    Html.RenderPartial("InlineEditors/_WeatherEditor", new WeatherEditorModel
+    {
+        @* Use the nameof() operator to get the name of the edited property from the widget property model *@
+        PropertyName = nameof(WeatherWidgetViewModel.DegreeUnit),
+        DegreeUnit = Model.DegreeUnit
+    });
+}
