@@ -1,0 +1,13 @@
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+@model DancingGoat.Models.InlineEditors.WeatherEditor.WeatherEditorModel
+
+@using (Html.Kentico().BeginInlineEditor("weather-editor", Model.PropertyName))
+{
+<div style="position: absolute; top: 0px; right: 0px;">
+    <button id="f-degree-btn" type="button">F</button>
+    <button id="c-degree-btn" type="button">C</button>
+    <button id="k-degree-btn" type="button">K</button>
+</div>
+}
