@@ -1,0 +1,4 @@
+using Kentico.PageBuilder.Web.Mvc.PageTemplates;
+
+//Page Templates
+[assembly: RegisterPageTemplate("Keith.PersonName", "Person Name Template", null, "PageTemplates/_PersonName")]
