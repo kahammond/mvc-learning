@@ -9,30 +9,12 @@ namespace DancingGoat.Models.Widgets.WeatherWidget
 
         public string Cafe { get; set; }
 
-        public string Location {
-            get
-            {
-                string location = "It failed if you see this";
+        public string Location { get; set; }
 
-                DocumentQuery cafes = DocumentHelper.GetDocuments("DancingGoatMvc.Cafe")
-                                    .Path("/Cafes/", PathTypeEnum.Children)
-                                    .OnSite("DancingGoatMvc")
-                                    .Culture("en-us")
-                                    .Where("DocumentName", QueryOperator.Equals, Cafe)
-                                    .TopN(1);
-                
-                foreach (TreeNode cafe in cafes)
-                {
-                    location = cafe.GetValue<string>("CafeCountry", "Location not available");
-                }
+        public string ZipCode { get; set; }
 
-                return location;
-            }
+        public int Temperature { get; set; }
 
-            set
-            {
-
-            }
-        }
+        public string ErrorMessage { get; set; }
     }
 }
