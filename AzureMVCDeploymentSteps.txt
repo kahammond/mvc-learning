@@ -1,0 +1,24 @@
+1. Create new Web App for Admin: Subscription-Customer Success; Resource Group-keithh; Instance name like "keithh<projectname>Admin"; Runtime Stack-ASP.NET 4.7; Pricing-S1
+2. Create new Web App for MVC site: Subscription-Customer Success; Resource Group-keithh; Instance name like "keithh<projectname>Site"; Runtime Stack-ASP.NET 4.7; Pricing-S1
+3. Create new SQL Server: Subscription-Customer Success; Resource Group-keithh; Instance name like "keithhsqlserver"; Unique password
+4. Open WebApp in Visual Studio. Right Click CMSApp > Publish. App Service > Select Existing > Create Profile.
+5. Find my resource group, select app to deploy to, click OK. Click Publish.
+6. Repeat steps 4 and 5 for DancingGoatMvc.sln, slecting other App Service.
+7. Create SQL DB in Azure: Subscription-Customer Success; Resource Group-keithh; DB name like "keithh<projectname>"; Server-my Azure sql server; Computer+Storage-Standard S0
+8. Open both App services in other tabs. Open FileZilla.
+9. In App Service, go to Deployment Center. Select FTP > Dashboard. Get FTP username & password.
+10. Connect to each App Service's FTP, and get the Web.config. Change each Conneciton String
+11. There will be an error for whitelisting the Azure Admin App IP. Add that IP to the SQL Server's firewall settings.
+12. Load Admin Site, and go through Kentico DB connector.
+13. Export Dancing Goat MVC from local copy of project.
+14. Import it into Azure project's Admin.
+15. Change presentation URL to the MVC Site's Azure URL.
+16. There will be an error to edit the web.config: <customErrors mode="Off"/> in configguration > system.web
+17. There will be an error for whitelisting the Azure MVC presentation site's IP Address. Add this to SQL server's firewall settings.
+18. There will be an error for no license for MVC Site's domain. Add it.
+
+
+Optional DB deployment
+1. Export DB as bacpac.
+2. Create an Azure storage account, upload bacpac to it.
+3. From SQL Server: Import Database: Customer Success; storage account > select bacpac file; S0 pricing tier; DB name-keith<db name>; collation?; my login credentials
