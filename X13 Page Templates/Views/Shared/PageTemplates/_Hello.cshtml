@@ -1,0 +1,24 @@
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using NewSite.PageTemplates
+@addTagHelper *, Kentico.Content.Web.Mvc
+@model ComponentViewModel<GoodbyePageProperties>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.Properties.ShowTitle)
+{
+    <h1>@Model.Page.DocumentName</h1>
+}
+
+<h1>Hello, my friend.</h1>
+<div>
+    <div>
+        @await Html.Kentico().EditableAreaAsync("top")
+    </div>
+    <div style="background-color: #eeeeee">
+        @await Html.Kentico().EditableAreaAsync("bottom")
+    </div>
+</div>
