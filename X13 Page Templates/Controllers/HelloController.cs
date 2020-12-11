@@ -1,9 +1,5 @@
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Microsoft.AspNetCore.Mvc;
-using NewSite.PageTemplates;
-
-[assembly: RegisterPageTemplate("Keith.Hello", "Hello page", typeof(GoodbyePageProperties), customViewName: "~/Views/Shared/PageTemplates/_Hello.cshtml",
-        Description = "Hello.", IconClass = "icon-l-text")]
 
 namespace NewSite.Controllers
 {
