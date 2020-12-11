@@ -6,6 +6,9 @@ using NewSite.Models;
 using NewSite.PageTemplates;
 using System.Linq;
 
+[assembly: RegisterPageTemplate("Keith.Goodbye", "Goodbye page", typeof(GoodbyePageProperties), customViewName: "~/Views/Shared/PageTemplates/_Goodbye.cshtml",
+        Description = "Goodbye.", IconClass = "icon-l-text")]
+
 namespace NewSite.Controllers
 {
     public class GoodbyeController : PageTemplateController<GoodbyePageProperties>
