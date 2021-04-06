@@ -10,4 +10,4 @@ Default Template: Meant for Blank Site MVC template only. A default K12 MVC temp
 
 Xperience 13 Page Templates: This provides two examples of page template implementation based on custom routing. The Hello template uses an ordinary controller; which includes a page template registration. The Goodbye template uses a View Model, and a Page Template Controller with additional functionality.
 
-Weather widget: Dancing Goat MVC only. This widget allows users to select on of Dancing Goat's cafe locations to display the current temperature of that location. Accurate to US locations only.
+Weather widget: Dancing Goat MVC only. This widget allows users to select one of Dancing Goat's cafe locations to display the current temperature of that location. Accurate to US locations only.
