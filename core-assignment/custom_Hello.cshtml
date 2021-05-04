@@ -1,0 +1,20 @@
+﻿@using CMS.DocumentEngine
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* Declares the generic model using the 'TreeNode' class *@
+@model Kentico.Content.Web.Mvc.Routing.IPageViewModel<TreeNode>
+@* Renders the name of the page *@
+@Model.Page.DocumentName
+
+@* Accesses the 'Text' field of the page type *@
+@Html.Raw(Model.Page.GetValue("Text"))
+
+<div>
+    The editable area is here.
+    @await Html.Kentico().EditableAreaAsync("basic_ctr")
+</div>
