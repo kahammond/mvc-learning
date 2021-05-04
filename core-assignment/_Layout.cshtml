@@ -1,0 +1,14 @@
+﻿@using Kentico.Web.Mvc
+@using Kentico.PageBuilder.Web.Mvc
+
+<html>
+<head>
+    <title>This is the header with PageBuilderStyles</title>
+    @Html.Kentico().PageBuilderStyles()
+</head>
+<body>
+    <p>This is the body with PageBuilderScripts</p>
+    @RenderBody()
+    @Html.Kentico().PageBuilderScripts()
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using TemplateAssignment.Models.PageTemplates
+@using TemplateAssignment.PageTemplates
+
+@inject ComplimentTemplateService complimentService
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@* Declares the generic model using the 'TreeNode' class *@
+@model ComponentViewModel<ComplimentTemplateProperties>
+@* Renders the name of the page *@
+
+@if (Model.Properties.ShowCompliment == true)
+{
+    <p>@Model.Page.DocumentName</p>
+    <p>@Model.Properties.ThankYouMessage</p>
+}
+
+<p>The most recent insult: @complimentService.GetLatestInsult()</p>
+
+<div>
+    This is the editable area of the Compliment page template.
+    @await Html.Kentico().EditableAreaAsync("basic_ctr")
+</div>
