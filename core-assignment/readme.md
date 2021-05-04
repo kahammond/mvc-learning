@@ -14,3 +14,17 @@ Advanced content tree routing:
 * GoodbyeController.cs
 * Goodbye.generated.cs
 * GoodbyProvider.generated.cs
+
+Basic page template:
+* \_Insult.cshtml
+* InsultTemplateProperties.cs
+* ComponentRegister.cs
+
+Advanced page template w/ service:
+* ComplimentTemplateService.cs
+* Insult.generated.cs
+* InsultProvider.generated.cs
+* \_Compliment.cshtml.cs
+* ComplimentTemplateProperties.cs
+* ComplimentController.cs
+* Startup.cs (to initiate service)
