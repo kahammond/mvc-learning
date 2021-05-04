@@ -1,7 +1,14 @@
 The files contained in this folder make up several components of a core assignment. This includes page type generated class files, and examples for Content Tree-based Routing (basic and advanced), and Content Tree-based Routing page template examples (basic and advanced w/ service). I will do my best to state which files are used for which example. Some files may be used for more than one example.
 
+Global files:
+* \_Layout.cshtml
+
 Basic content tree routing:
 * custom_Hello.cshtml
 
 Advanced content tree routing:
-* 
+* CustomGoodbye.cshtml
+* GoodbyeViewModel.cs
+* GoodbyeController.cs
+* Goodbye.generated.cs
+* GoodbyProvider.generated.cs
